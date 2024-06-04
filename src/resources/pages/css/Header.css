@@ -1,0 +1,25 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #4CAF50; /* Green background */
+  color: white;
+  padding: 15px 30px; /* Increased padding */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Increased box shadow */
+}
+
+.header a {
+  text-decoration: none;
+  color: white;
+  margin: 0 20px; /* Increased margin */
+  font-size: 18px; /* Increased font size */
+}
+
+.header a:hover {
+  text-decoration: underline;
+  color: #e57373; /* Light red color on hover */
+}
+.header a.active {
+  color: red; /* Change to your desired active color */
+  font-weight: bold; /* Optionally, make the active button bold */
+}
