@@ -1,17 +1,17 @@
 const express = require('express');
 const mongoose = require('mongoose');
 
-const uri = "mongodb+srv://lehaison18302:haison18032002@cluster0.8wdj28z.mongodb.net/toiec-test?retryWrites=true&w=majority&appName=Cluster0";
+const uri =
+  'mongodb+srv://lehaison18302:haison18032002@cluster0.8wdj28z.mongodb.net/toiec-test?retryWrites=true&w=majority&appName=Cluster0';
 
 mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 
 // Check connection
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function() {
-    console.log("Connected to MongoDB Atlas");
+db.once('open', function () {
+  console.log('Connected to MongoDB Atlas');
 });
-
 
 const app = express();
 
@@ -25,11 +25,10 @@ app.get('/', (req, res) => {
   res.json({ message: 'Welcome to Toeic application.' });
 });
 
-  app.listen(5000, () => {
-    console.log(`
+app.listen(5000, () => {
+  console.log(`
       ################################################
       🚀 Server listening on port: 5000 🚀
       ################################################
     `);
-  });
-
+});
