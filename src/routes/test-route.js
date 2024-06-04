@@ -7,6 +7,6 @@ router.get("/", function (req, res) {
   res.send("Get all tests");
 });
 
-router.get("/by-/{}");
-
+// router.get("/by-/{}");
+//
 module.exports = router;
