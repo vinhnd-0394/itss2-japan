@@ -1,6 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
-
+const routes = require("./routes");
 const uri =
   "mongodb+srv://lehaison18302:haison18032002@cluster0.8wdj28z.mongodb.net/toiec-test?retryWrites=true&w=majority&appName=Cluster0";
 
@@ -20,7 +20,7 @@ app.use(express.json());
 
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(express.urlencoded({ extended: true }));
-
+app.use("/api", routes);
 app.get("/", (req, res) => {
   res.json({ message: "Welcome to Toeic application." });
 });
