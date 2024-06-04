@@ -1,6 +1,17 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const db = require('./db'); // Import module db.js
+
+const uri = "mongodb+srv://lehaison18302:haison18032002@cluster0.8wdj28z.mongodb.net/toiec-test?retryWrites=true&w=majority&appName=Cluster0";
+
+mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+
+// Check connection
+const db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function() {
+    console.log("Connected to MongoDB Atlas");
+});
+
 
 const app = express();
 
@@ -14,8 +25,6 @@ app.get('/', (req, res) => {
   res.json({ message: 'Welcome to Toeic application.' });
 });
 
-// Chờ kết nối thành công với cơ sở dữ liệu MongoDB trước khi khởi động máy chủ
-mongoose.connection.once('open', () => {
   app.listen(5000, () => {
     console.log(`
       ################################################
@@ -23,9 +32,4 @@ mongoose.connection.once('open', () => {
       ################################################
     `);
   });
-});
 
-// Xử lý lỗi kết nối MongoDB
-mongoose.connection.on('error', err => {
-  console.error('Lỗi kết nối MongoDB:', err);
-});
