@@ -1,0 +1,32 @@
+const mongoose = require('mongoose');
+
+const sectionSchema = new mongoose.Schema({
+  name: {
+    type: String,
+    required: true
+  },
+  questions: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Question'
+  }]
+});
+
+const testSchema = new mongoose.Schema({
+  title: {
+    type: String,
+    required: true
+  },
+  description: {
+    type: String,
+    required: true
+  },
+  sections: [sectionSchema],
+  created_at: {
+    type: Date,
+    default: Date.now
+  }
+});
+
+const Test = mongoose.model('Test', testSchema);
+
+module.exports = Test;
