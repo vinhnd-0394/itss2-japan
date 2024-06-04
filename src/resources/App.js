@@ -1,7 +1,14 @@
 import React from "react";
+import { Route, Routes } from "react-router-dom";
+import Home from "./pages/Home";
+import RoadMap from "./pages/RoadMap";
 
 const App = () => {
-  return <h1>Hello world! I am using React</h1>;
+  return (
+    <Routes>
+      <Route path="/" element={<Home />}></Route>
+      <Route path="/road-map" element={<RoadMap />}></Route>
+    </Routes>
+  );
 };
-// tung
 export default App;
