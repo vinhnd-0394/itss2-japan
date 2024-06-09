@@ -111,7 +111,8 @@
     width: 100%; 
     max-width: 100%; 
     margin-bottom: 30px; 
-  }
+}
+
 .options {
     display: flex;
     flex-wrap: wrap;
@@ -134,16 +135,57 @@
     margin-right: 5px; /* Khoảng cách giữa ô tròn và văn bản */
 }
 
-.next-button {
-    margin-top: auto; /* Đẩy nút xuống dưới cùng */
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.prev-button, .next-button {
     padding: 10px 20px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
+    font-size: 16px;
     cursor: pointer;
-    align-self: flex-end; /* Căn lề phải */
+}
+
+.prev-button {
+    background-color: #f0f0f0;
+}
+
+.next-button {
+    background-color: #4caf50;
+    color: white;
 }
 
 .next-button:hover {
     background-color: #45a049;
 }
+
+.write-area {
+    margin-top: 20px;
+}
+
+.textarea {
+    width: 100%;
+    height: 200px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: vertical; /* Cho phép điều chỉnh chiều cao */
+}
+
+.submit-button {
+    background-color: #007bff; /* Màu nền của nút */
+    color: #fff; /* Màu chữ */
+    padding: 10px 20px; /* Kích thước gói của nút */
+    border: none; /* Không có viền */
+    border-radius: 5px; /* Bo tròn góc */
+    cursor: pointer; /* Con trỏ chuột khi rê vào nút */
+    margin-top: 20px; /* Khoảng cách với phần trên */
+    font-size: 16px; /* Kích thước chữ */
+  }
+  
+  .submit-button:hover {
+    background-color: #0056b3; /* Màu nền khi rê vào nút */
+  }
+  
