@@ -1,79 +1,58 @@
-/* ToeicResult.css */
 .toeic-result {
-    padding: 20px;
-    font-family: Arial, sans-serif;
-  }
-  
-  .result-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .result-header img {
-    width: 100px;
-    height: 100px;
-  }
-  
-  .result-header .info {
-    text-align: right;
-  }
-  
-  .result-header .info h2 {
-    margin: 0;
-    font-size: 24px;
-  }
-  
-  .result-header .info p {
-    margin: 5px 0;
-    font-size: 18px;
-  }
-  
-  .part {
-    margin: 20px 0;
-  }
-  
-  .part h3 {
-    margin-bottom: 10px;
-    font-size: 20px;
-  }
-  
-  .question {
-    margin: 10px 0;
-  }
-  
-  .question p {
-    margin: 5px 0;
-  }
-  
-  .question .options {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-  }
-  
-  .option {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-  }
-  
-  .option.correct {
-    color: green;
-  }
-  
-  .option.incorrect {
-    color: red;
-  }
-  
-  .score {
-    text-align: right;
-    font-size: 24px;
-    margin-top: 20px;
-  }
-  
-  .result-timer {
-    text-align: right;
-    font-size: 16px;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+.result-content {
+  display: flex;
+  align-items: flex-start;
+  background-color: #f0f0f0;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+.result-text {
+  max-width: 600px;
+  text-align: left; /* Căn lề phải */
+}
+.result-list{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.result-item {
+  background-color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  margin: 5px 0;
+  width: 80%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.result-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.result-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.view-button {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #007bff;
+  color: white;
+}

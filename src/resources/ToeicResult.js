@@ -1,61 +1,58 @@
-import React from 'react';
-import './ToeicResult.css';
+import React, { useState } from 'react';
+import './ToeicResult.css'; // Nhập tệp CSS mới
+import QuestionDetail from './QuestionDetail'; // Nhập component QuestionDetail
 
 const ToeicResult = () => {
+  const [selectedPartIndex, setSelectedPartIndex] = useState(null);
+  const tests = Array.from({ length: 7 }, (_, i) => ({
+    part: `Part ${i + 1}`,
+    score: `${15 - i}/15 câu`,
+    questions: [
+      {
+        question: 'How old are you?',
+        answers: [
+          { text: 'Hello', correct: false },
+          { text: 'i am 20 years old', correct: true },
+          { text: 'Hi, i am Vinh', correct: false },
+          { text: 'i’m fine, thank you', correct: false }
+        ]
+      },
+      // Thêm các câu hỏi khác nếu cần
+    ]
+  }));
+
+  const handleViewClick = (index) => {
+    setSelectedPartIndex(selectedPartIndex === index ? null : index);
+  };
+
   return (
     <div className="toeic-result">
-      <div className="result-header">
-        <img src="/path/to/logo.png" alt="Logo" />
-        <div className="info">
-          <h2>Ngô Duy Vĩnh 20205049</h2>
-          <p>550 / 990</p>
-          <p>Thời gian: 1 giờ 30 phút</p>
+      <div className="result-content">
+        Ngũ Duy Vinh 20205049
+        <div className="result-text">
+          550/990
         </div>
       </div>
-
-      <div className="part">
-        <h3>Part 1: 6 / 6 câu</h3>
-        <div className="question">
-          <p>Câu 1. How old are you?</p>
-          <div className="options">
-            <div className="option incorrect">A. Hello</div>
-            <div className="option correct">B. I am 20 years old</div>
-            <div className="option incorrect">C. Hi, I am Vinh</div>
-            <div className="option incorrect">D. I'm fine, thank you</div>
+      <div className="result-list">
+        {tests.map((test, index) => (
+          <div key={index} className="result-item">
+            <div className="result-header">
+              <span>{`${test.part} : ${test.score}`}</span>
+              <div className="result-buttons">
+                <button className="view-button" onClick={() => handleViewClick(index)}>
+                  {selectedPartIndex === index ? 'Hide' : 'View'}
+                </button>
+              </div>
+            </div>
+            {selectedPartIndex === index && (
+              <QuestionDetail
+                part={test.part}
+                questions={test.questions}
+              />
+            )}
           </div>
-        </div>
-        <div className="question">
-          <p>Câu 2. How old are you?</p>
-          <div className="options">
-            <div className="option incorrect">A. Hello</div>
-            <div className="option correct">B. I am 20 years old</div>
-            <div className="option incorrect">C. Hi, I am Vinh</div>
-            <div className="option incorrect">D. I'm fine, thank you</div>
-          </div>
-        </div>
-        <div className="question">
-          <p>Câu 3. How old are you?</p>
-          <div className="options">
-            <div className="option incorrect">A. Hello</div>
-            <div className="option correct">B. I am 20 years old</div>
-            <div className="option incorrect">C. Hi, I am Vinh</div>
-            <div className="option incorrect">D. I'm fine, thank you</div>
-          </div>
-        </div>
+        ))}
       </div>
-
-      <div className="part">
-        <h3>Part 2: 15 / 25 câu</h3>
-        {/* Repeat similar structure for other parts */}
-      </div>
-
-      <div className="part">
-        <h3>Part 3: 15 / 39 câu</h3>
-        {/* Repeat similar structure for other parts */}
-      </div>
-
-      <div className="score">Score: 550 / 990</div>
-      <div className="result-timer">Thời gian: 1 giờ 30 phút</div>
     </div>
   );
 };

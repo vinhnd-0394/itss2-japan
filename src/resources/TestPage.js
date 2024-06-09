@@ -41,7 +41,7 @@ const TestPage = () => {
   };
   const handleSubmitAnswer = () => {
     setSubmitted(true);
-    navigate('/results');
+    navigate('/result');
   };
 
   return (
