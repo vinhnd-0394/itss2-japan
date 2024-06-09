@@ -10,7 +10,7 @@ module.exports = {
   },
   target: 'web',
   devServer: {
-    port: '3000',
+    port: '3001',
     static: {
       directory: path.join(__dirname, 'public'),
     },
@@ -31,6 +31,13 @@ module.exports = {
         exclude: /node_modules/,
         use: 'babel-loader',
       },
+
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
+      },
+
+
     ],
   },
   plugins: [
