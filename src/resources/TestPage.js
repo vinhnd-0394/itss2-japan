@@ -54,7 +54,7 @@ const TestPage = () => {
       <div className="content">
         <div className="sidebar">
           <div className="exam-title">Môn thi : Toeic IIG</div>
-          <h3>Lê Đình Hải Sơn 20205123</h3>
+          <h3>Ngũ Duy Vinh 20205049</h3>
           <div className="test-grid">
             {Array.from({ length: 16 }, (_, i) => (
               <div key={i} className={`test-square ${i < 4 ? 'green-square' : ''}`}>
@@ -162,7 +162,7 @@ const TestPage = () => {
                   Enjoy favorites such as Casa Amarilla and Cold Snow. Admission is $8 for adults, and (6) ... rates are offered for children 12 and under.
                 </p>
               </div>
-              {/* Question 1 */}
+              {/* Question 4 */}
               <div className="question">
                 <div className="options">
                   <span className="question-number">4.</span>
@@ -185,7 +185,7 @@ const TestPage = () => {
                 </div>
               </div>
 
-              {/* Question 2 */}
+              {/* Question 5*/}
               <div className="question">
                 <div className="options">
                   <span className="question-number">5.</span>
@@ -208,7 +208,7 @@ const TestPage = () => {
                 </div>
               </div>
 
-              {/* Question 3 */}
+              {/* Question 6 */}
               <div className="question">
                 <div className="options">
                   <span className="question-number">6.</span>

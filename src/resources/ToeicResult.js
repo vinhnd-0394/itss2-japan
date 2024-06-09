@@ -17,6 +17,15 @@ const ToeicResult = () => {
           { text: 'i’m fine, thank you', correct: false }
         ]
       },
+      {
+        question: 'How old are you?',
+        answers: [
+          { text: 'Hello', correct: false },
+          { text: 'i am 20 years old', correct: true },
+          { text: 'Hi, i am Vinh', correct: false },
+          { text: 'i’m fine, thank you', correct: false }
+        ]
+      },
       // Thêm các câu hỏi khác nếu cần
     ]
   }));

@@ -18,13 +18,13 @@
   .practice-image {
     width: 300px;
     height: auto;
-    margin-right: 200px; /* Tăng khoảng cách giữa ảnh và văn bản */
+    margin-right: 200px; 
     border-radius: 10px;
   }
   
   .practice-text {
     max-width: 600px;
-    text-align: left; /* Căn lề phải */
+    text-align: left;
   }
   
   .practice-text h2 {

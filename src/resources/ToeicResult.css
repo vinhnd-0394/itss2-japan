@@ -5,18 +5,29 @@
   padding: 20px;
 }
 .result-content {
+  font-weight: bold;
   display: flex;
-  align-items: flex-start;
-  background-color: #f0f0f0;
+  justify-content: space-between;
+  align-items: center;
   padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  margin-bottom: 20px;
 }
+
 .result-text {
-  max-width: 600px;
-  text-align: left; /* Căn lề phải */
+  width: 100px; 
+  height: 100px;
+  background-color: white; 
+  border: 2px solid black; 
+  border-radius: 50%; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 18px;
+  color: blue; 
+  margin-left: 800px; 
 }
+
+
 .result-list{
   width: 100%;
   display: flex;
