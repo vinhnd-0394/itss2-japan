@@ -1,0 +1,62 @@
+.roadmap-container {
+    padding: 20px;
+  }
+  
+  .course-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+    margin-top: 20px;
+  }
+  
+  .course-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 300px; /* Increase the minimum height for taller cards */
+  }
+  
+  .course-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .course-image {
+    width: 100%;
+    height: 150px; /* Adjust height as needed */
+    object-fit: cover; /* Ensures the image covers the container without distortion */
+  }
+  
+  .course-name {
+    font-size: 18px;
+    margin: 16px;
+    color: #333;
+  }
+  
+  .course-milestone,
+  .course-goal {
+    font-size: 14px;
+    margin: 0 16px 16px;
+    color: #666;
+  }
+  
+  .view-details-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px;
+    margin: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .view-details-button:hover {
+    background-color: #0056b3;
+  }
+  
