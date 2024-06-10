@@ -1,0 +1,66 @@
+.footer {
+  background: #000;
+  color: #fff;
+  padding: 1.6rem 6rem; /* Giảm padding từ 4rem xuống 1.6rem */
+  width: 100%; /* Đảm bảo footer chiếm chiều rộng toàn bộ */
+  position: absolute; /* Đặt vị trí tuyệt đối */
+  bottom: 0; /* Cố định footer ở đáy */
+  left: 0;
+}
+
+.top {
+  display: flex;
+  align-items: center;
+  text-align: start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.top i {
+  color: #fff;
+  font-size: 1.5rem; /* Giảm kích thước icon từ 2rem xuống 1.5rem */
+  margin-left: 0.5rem; /* Giảm margin-left từ 1rem xuống 0.5rem */
+}
+
+.top i:hover {
+  color: #01959a;
+}
+
+.bottom {
+  padding-top: 1rem; /* Giảm padding-top từ 2rem xuống 1rem */
+  text-align: start;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.bottom div {
+  display: flex;
+  flex-direction: column;
+}
+
+.bottom h4 {
+  font-size: 1rem; /* Giảm font-size từ 1.3rem xuống 1rem */
+  padding: 0.5rem 0 0.4rem 0; /* Giảm padding từ 1rem 0 0.8rem 0 xuống 0.5rem 0 0.4rem 0 */
+}
+
+.bottom a {
+  text-decoration: none;
+  color: #fafafa;
+  padding-bottom: 0.2rem; /* Giảm padding-bottom từ 0.4rem xuống 0.2rem */
+  font-size: 0.9rem; /* Giảm font-size từ 1.1rem xuống 0.9rem */
+}
+
+@media screen and (max-width: 850px) {
+  .footer {
+    padding: 2rem 1rem; /* Giảm padding từ 4rem 2rem xuống 2rem 1rem */
+  }
+
+  .footer i {
+    margin: 0.5rem 0.5rem 0 0; /* Giảm margin từ 1rem 1rem 0 0 xuống 0.5rem 0.5rem 0 0 */
+  }
+
+  .bottom div {
+    width: 50%;
+  }
+}
