@@ -1,7 +1,7 @@
-import React from 'react';
-import { Route, Routes } from 'react-router-dom';
-import Home from './pages/Home';
-import RoadMap from './pages/RoadMap';
+import React from "react";
+import { Route, Routes } from "react-router-dom";
+import Home from "./pages/Home";
+import RoadMap from "./pages/RoadMap";
 
 const App = () => {
   return (
@@ -11,5 +11,4 @@ const App = () => {
     </Routes>
   );
 };
-
 export default App;
