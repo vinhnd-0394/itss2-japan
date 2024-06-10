@@ -5,7 +5,9 @@ const Header = () => {
   return (
     <header className="App-header">
       <div className="header-left">
-        <h1 className="toeic">TOEIC</h1>
+        <Link to="/" className="toeic">
+          TOIEC
+        </Link>
         <div className="nav-links">
           <Link to="/toeic-practice">Thi Thử</Link>
           <Link to="/">Lộ Trình Học</Link>
@@ -14,7 +16,9 @@ const Header = () => {
         </div>
       </div>
       <div className="header-right">
-        <p className="user">Xin chào, Vinh <button>Thoát</button></p>
+        <p className="user">
+          Xin chào, Vinh <button>Thoát</button>
+        </p>
       </div>
     </header>
   );
