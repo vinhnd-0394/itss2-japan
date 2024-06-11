@@ -13,21 +13,26 @@ const sectionSchema = new mongoose.Schema({
   ],
 });
 
-const testSchema = new mongoose.Schema({
-  title: {
-    type: String,
-    required: true,
+const testSchema = new mongoose.Schema(
+  {
+    title: {
+      type: String,
+      required: true,
+    },
+    description: {
+      type: String,
+      required: true,
+    },
+    sections: [sectionSchema],
+    created_at: {
+      type: Date,
+      default: Date.now,
+    },
   },
-  description: {
-    type: String,
-    required: true,
-  },
-  sections: [sectionSchema],
-  created_at: {
-    type: Date,
-    default: Date.now,
-  },
-});
+  {
+    collection: "Tests",
+  }
+);
 
 const Test = mongoose.model("Tests", testSchema);
 
