@@ -1,11 +1,11 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import './App.css';
-import Courses from './Courses';
-import ToeicPractice from './ToeicPractice';
-import TestPage from './TestPage';
-import Header from './Header';
-import ToeicResult from './ToeicResult';
+import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import "./App.css";
+import Courses from "./Courses";
+import ToeicPractice from "./ToeicPractice";
+import TestPage from "./TestPage";
+import Header from "./Header";
+import ToeicResult from "./ToeicResult";
 
 function App() {
   return (
