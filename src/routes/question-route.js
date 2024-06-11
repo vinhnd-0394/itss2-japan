@@ -1,9 +1,15 @@
 const express = require("express");
 const router = express.Router();
-
-router.get("/", function (req, res) {
-  // Get all test
-  res.send("Get all questions");
+const Question = require("../model/question.model");
+router.get("/", async function (req, res) {
+  try {
+    const questions = await Question.find({});
+    console.log(questions);
+    res.status(200).json(questions);
+  } catch (error) {
+    res.status(500).json({ message: "Error retrieving users", error });
+  }
+  // res.send("Get all questions");
 });
 //export
 module.exports = router;
