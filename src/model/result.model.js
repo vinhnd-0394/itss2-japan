@@ -1,9 +1,9 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const answerSchema = new mongoose.Schema({
   question_id: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'Question',
+    ref: "Question",
     required: true,
   },
   selected_option: {
@@ -20,12 +20,12 @@ const resultSchema = new mongoose.Schema(
   {
     user_id: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'User',
+      ref: "User",
       required: true,
     },
     test_id: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'Test',
+      ref: "Test",
       required: true,
     },
     score: {
@@ -39,10 +39,10 @@ const resultSchema = new mongoose.Schema(
     },
   },
   {
-    collection: 'Results',
+    collection: "Results",
   }
 );
 
-const Result = mongoose.model('results', resultSchema);
+const Result = mongoose.model("results", resultSchema);
 
 module.exports = Result;
