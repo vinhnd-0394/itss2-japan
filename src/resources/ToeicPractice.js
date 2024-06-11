@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './ToeicPractice.css';
+import { getQuestions } from './apis/api';
 
 const ToeicPractice = () => {
+  const [questions, setQuestions] = useState([]);
   const navigate = useNavigate();
   const tests = Array.from(
     { length: 16 },
@@ -13,6 +15,16 @@ const ToeicPractice = () => {
     navigate('/test');
   };
 
+  useEffect(() => {
+    async function fetchQuestion() {
+      const response = await getQuestions();
+      console.log(response);
+      setQuestions(response);
+    }
+    fetchQuestion();
+  }, []);
+
+  console.log('questions', questions);
   return (
     <div className="toeic-practice">
       <div className="practice-content">
@@ -30,7 +42,11 @@ const ToeicPractice = () => {
         </div>
       </div>
       <div className="test-list">
-        {tests.map((test, index) => (
+        {questions?.length &&
+          questions.slice(0, 10).map((item) => {
+            return <div key={item._id}>{item.answer.hint}</div>;
+          })}
+        {/* {tests.map((test, index) => (
           <div key={index} className="test-item">
             <span>{test}</span>
             <div className="test-buttons">
@@ -40,7 +56,7 @@ const ToeicPractice = () => {
               </button>
             </div>
           </div>
-        ))}
+        ))} */}
       </div>
     </div>
   );

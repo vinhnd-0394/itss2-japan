@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const routes = require("./routes");
+const cors = require("cors");
 const uri =
   "mongodb+srv://lehaison18302:haison18032002@cluster0.8wdj28z.mongodb.net/toiec-test?retryWrites=true&w=majority&appName=Cluster0";
 
@@ -14,7 +15,7 @@ db.once("open", function () {
 });
 
 const app = express();
-
+app.use(cors());
 // parse requests of content-type - application/json
 app.use(express.json());
 
