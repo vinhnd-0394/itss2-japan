@@ -6,7 +6,7 @@ router.get("/", async function (req, res) {
     const tests = await Test.find({});
     res.status(200).json(tests);
   } catch (err) {
-    res.status(500).json({ message: "Error retrieving tests", error });
+    res.status(500).json({ message: "Error retrieving tests", err });
   }
 });
 

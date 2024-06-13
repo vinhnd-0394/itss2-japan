@@ -1,29 +1,26 @@
 const mongoose = require("mongoose");
 
-const sectionSchema = new mongoose.Schema({
-  name: {
-    type: String,
-    required: true,
-  },
-  questions: [
-    {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Questions",
-    },
-  ],
-});
-
 const testSchema = new mongoose.Schema(
   {
-    title: {
+    Name: {
       type: String,
       required: true,
     },
+
     description: {
       type: String,
       required: true,
     },
-    sections: [sectionSchema],
+
+    ltype: {
+      type: String,
+      required: true,
+    },
+
+    type: {
+      type: String,
+      required: true,
+    },
 
     created_at: {
       type: Date,

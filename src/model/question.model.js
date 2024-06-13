@@ -1,44 +1,35 @@
 const mongoose = require("mongoose");
-
-const optionSchema = new mongoose.Schema({
-  text: {
+const questionItemSchema = new mongoose.Schema({
+  questionText: {
     type: String,
     required: true,
   },
-  is_correct: {
-    type: Boolean,
+  answers: [String],
+  correctAnswer: {
+    type: Number,
     required: true,
   },
+});
+const examSchema = new mongoose.Schema({
+  name: {
+    type: String,
+    required: true,
+  },
+  description: {
+    type: String,
+    required: true,
+  },
+  questions: [questionItemSchema],
 });
 
 const questionSchema = new mongoose.Schema(
   {
     test_id: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Tests",
-      required: true,
-    },
-    section: {
       type: String,
       required: true,
     },
-    type: {
-      type: String,
-      default: "multiple-choice", // Mặc định là 'multiple-choice'
-      required: true,
-    },
-    level: {
-      type: String,
-      enum: ["easy", "medium", "hard"], // Mức độ khó
-      required: true,
-    },
-    question_text: {
-      type: String,
-      required: true,
-    },
-    options: [optionSchema],
-    explanation: {
-      type: String,
+    exam: {
+      type: examSchema,
       required: true,
     },
   },
