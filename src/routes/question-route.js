@@ -1,15 +1,5 @@
 const express = require('express');
 const router = express.Router();
-<<<<<<< HEAD
-const Question = require("../model/question.model");
-router.get("/", async function (req, res) {
-  try {
-    const questions = await Question.find({});
-    console.log(questions);
-    res.status(200).json(questions);
-  } catch (error) {
-    res.status(500).json({ message: "Error retrieving users", error });
-=======
 const fs = require('fs');
 const PDFDocument = require('pdfkit');
 const Question = require('../model/question.model');
@@ -139,14 +129,23 @@ const data = {
 
 router.get('/', async function (req, res) {
   try {
-    // const questions = await Question.find({});
-    res.status(200).json(data);
+    const questions = await Question.find({});
+    console.log(questions);
+    res.status(200).json(questions);
   } catch (error) {
-    res.status(500).json({ message: 'Error retrieving users', error });
->>>>>>> 233aba365a35c5f59418eb12ce493190ee89d602
+    res.status(500).json({ message: 'Error generating PDF', error });
   }
-  // res.send("Get all questions");
 });
+
+router.get('/of-test/:testId', async function (req, res) {
+  try {
+    const question = await Question.findOne({test_id: req.params.testId});
+    console.log(question);
+    res.status(200).json(question);
+  } catch (error) {
+    res.status(500).json({ message: 'Error', error });
+  }
+})
 
 router.get('/download', async function (req, res) {
   try {
