@@ -1,15 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './ToeicPractice.css';
-import { apiDownloadExamPdf, getQuestions } from './apis/api';
+import { apiDownloadExamPdf, getQuestions, getTest } from './apis/api';
 
 const ToeicPractice = () => {
   const [questions, setQuestions] = useState({});
+  const [tests, setTests] = useState([]);
   const navigate = useNavigate();
-  const tests = Array.from(
-    { length: 16 },
-    (_, i) => `Đề ${i + 1} : Luyện thi Toeic 0 - 100`
-  );
 
   const handleDoClick = () => {
     navigate('/test');
@@ -23,9 +20,17 @@ const ToeicPractice = () => {
     fetchQuestion();
   }, []);
 
-  const downloadExamPdf = async () => {
+  useEffect(() => {
+    async function fetchTest() {
+      const response = await getTest();
+      setTests(response);
+    }
+    fetchTest();
+  }, []);
+
+  const downloadExamPdf = async (testId) => {
     try {
-      const pdfBlob = await apiDownloadExamPdf();
+      const pdfBlob = await apiDownloadExamPdf(testId);
       const url = window.URL.createObjectURL(
         new Blob([pdfBlob], { type: 'application/pdf' })
       );
@@ -40,7 +45,6 @@ const ToeicPractice = () => {
     }
   };
 
-  console.log('questions', questions);
   return (
     <div className="toeic-practice">
       <div className="practice-content">
@@ -58,32 +62,96 @@ const ToeicPractice = () => {
         </div>
       </div>
       <div className="test-list">
-        {tests.map((test, index) => (
-          <div key={index} className="test-item">
-            <span>{test}</span>
-            <div className="test-buttons">
-              <button className="view-button" onClick={downloadExamPdf}>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={1.5}
-                  stroke="currentColor"
-                  className="size-6"
+        {tests.length > 0 &&
+          tests.map((test) => (
+            <div key={test._id} className="shadow-lg test-item">
+              <span>{test.Name}</span>
+              <div className="test-buttons">
+                <button
+                  className="view-button"
+                  onClick={() => downloadExamPdf(test._id)}
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3"
-                  />
-                </svg>
-              </button>
-              <button className="edit-button" onClick={handleDoClick}>
-                Do
-              </button>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={1.5}
+                    stroke="currentColor"
+                    className="size-6"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3"
+                    />
+                  </svg>
+                </button>
+                {/* <button className="edit-button" onClick={handleDoClick}>
+                  Do
+                </button> */}
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        {tests.length > 0 &&
+          tests.map((test) => (
+            <div key={test._id} className="shadow-lg test-item">
+              <span>{test.Name}</span>
+              <div className="test-buttons">
+                <button
+                  className="view-button"
+                  onClick={() => downloadExamPdf(test._id)}
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={1.5}
+                    stroke="currentColor"
+                    className="size-6"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3"
+                    />
+                  </svg>
+                </button>
+                {/* <button className="edit-button" onClick={handleDoClick}>
+                  Do
+                </button> */}
+              </div>
+            </div>
+          ))}
+        {tests.length > 0 &&
+          tests.map((test) => (
+            <div key={test._id} className="shadow-lg test-item">
+              <span>{test.Name}</span>
+              <div className="test-buttons">
+                <button
+                  className="view-button"
+                  onClick={() => downloadExamPdf(test._id)}
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={1.5}
+                    stroke="currentColor"
+                    className="size-6"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3"
+                    />
+                  </svg>
+                </button>
+                {/* <button className="edit-button" onClick={handleDoClick}>
+                  Do
+                </button> */}
+              </div>
+            </div>
+          ))}
       </div>
     </div>
   );

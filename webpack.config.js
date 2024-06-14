@@ -18,13 +18,13 @@ module.exports = {
     hot: true,
     liveReload: true,
     historyApiFallback: true,
-    proxy: {
-      '/api': {
-        target: 'http://localhost:5000',
-        changeOrigin: true,
-        secure: false,
-      },
-    },
+    // proxy: {
+    //   '/api': {
+    //     target: 'http://localhost:5000',
+    //     changeOrigin: true,
+    //     secure: false,
+    //   },
+    // },
   },
   resolve: {
     extensions: ['.js', '.jsx', '.json'],

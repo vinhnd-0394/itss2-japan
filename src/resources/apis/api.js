@@ -4,6 +4,12 @@ export const getQuestions = async () => {
   return axiosInstance.get('/api/question');
 };
 
-export const apiDownloadExamPdf = async () => {
-  return axiosInstance.get('/api/question/download', { responseType: 'blob' });
+export const getTest = async () => {
+  return axiosInstance.get('/api/test');
+};
+
+export const apiDownloadExamPdf = async (testId) => {
+  return axiosInstance.get(`/api/test/${testId}/download`, {
+    responseType: 'blob',
+  });
 };
