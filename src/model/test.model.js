@@ -21,7 +21,10 @@ const testSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-
+    roadmap_id: {
+      type: String,
+      required: true,
+    },
     created_at: {
       type: Date,
       default: Date.now,

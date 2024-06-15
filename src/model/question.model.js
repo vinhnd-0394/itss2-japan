@@ -4,6 +4,10 @@ const questionItemSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  section: {
+    type: String,
+    required: true,
+  },
   answers: [String],
   correctAnswer: {
     type: Number,
@@ -19,6 +23,7 @@ const examSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  sections: [String],
   questions: [questionItemSchema],
 });
 
