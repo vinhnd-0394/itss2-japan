@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './ToeicPractice.css';
-import { apiDownloadExamPdf, getQuestions, getTestByRoadmap } from './apis/api';
+import { apiDownloadExamPdf, getQuestions, getTest } from './apis/api';
 
-const ToeicPractice = () => {
-  const hash = window.location.hash.substring(1); 
-  console.log(hash);
+const AllToeicPractice = () => {
   const [questions, setQuestions] = useState({});
   const [tests, setTests] = useState([]);
   const navigate = useNavigate();
@@ -24,9 +22,8 @@ const ToeicPractice = () => {
 
   useEffect(() => {
     async function fetchTest() {
-      const response = await getTestByRoadmap(hash);
-      setTests(response || []);
-      console.log(response);
+      const response = await getTest();
+      setTests(response);
     }
     fetchTest();
   }, []);
@@ -57,10 +54,9 @@ const ToeicPractice = () => {
           className="practice-image"
         />
         <div className="practice-text">
-          <h2>Lộ trình từ 0 đến 100 điểm TOEIC</h2>
+          <h2>Danh sách các đề thi mẫu TOEIC cập nhật mới nhất</h2>
           <p>
-            ★ Lộ trình này giúp bạn lấy lại gốc tiếng anh một cách nhanh chóng
-            thông qua các bài test
+            ★ Đề thi TOEIC được cập nhật mới nhất mang đến những kiến thức và trải nhiệm gần nhất với đề thi thật.
           </p>
         </div>
       </div>
@@ -100,4 +96,4 @@ const ToeicPractice = () => {
   );
 };
 
-export default ToeicPractice;
+export default AllToeicPractice;

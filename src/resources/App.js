@@ -6,7 +6,7 @@ import ToeicPractice from './ToeicPractice';
 import TestPage from './TestPage';
 import Header from './Header';
 import ToeicResult from './ToeicResult';
-
+import AllToeicPractice from './AllToeicPractice';
 function App() {
   return (
     <Router>
@@ -14,7 +14,8 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Courses />} />
-          <Route path="/toeic-practice" element={<ToeicPractice />} />
+          <Route path="/roadmap/toeic-practice" element={<ToeicPractice />} />
+          <Route path="/toeic-practice" element={<AllToeicPractice />} />
           <Route path="/test" element={<TestPage />} />
           <Route path="/result" element={<ToeicResult />} />
         </Routes>
