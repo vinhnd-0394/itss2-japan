@@ -3,9 +3,19 @@ const router = express.Router();
 const Test = require("../model/test.model");
 const Question = require("../model/question.model");
 const PDFDocument = require('pdfkit');
+const path = require('path');
 router.get("/", async function (req, res) {
   try {
     const tests = await Test.find({});
+    res.status(200).json(tests);
+  } catch (err) {
+    res.status(500).json({ message: "Error retrieving tests", err });
+  }
+});
+
+router.get('/of-roadmap/:id', async function (req, res) {
+  try {
+    const tests = await Test.find({roadmap_id: req.params.id});
     res.status(200).json(tests);
   } catch (err) {
     res.status(500).json({ message: "Error retrieving tests", err });
